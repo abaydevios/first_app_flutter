@@ -1,9 +1,7 @@
 import 'package:first_app_flutter/scr/screens/auth/auth_screen.dart';
 import 'package:first_app_flutter/scr/screens/register_screen/register_widget.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);

@@ -11,7 +11,7 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xFFF3F4F6),
+      backgroundColor: AppColors.scaffoldBackground,
       navigationBar: CupertinoNavigationBar(
         border: Border(),
         backgroundColor: CupertinoColors.white,
@@ -25,7 +25,7 @@ class AuthScreen extends StatelessWidget {
             CustomTextFieldLogin(),
             Container(
               height: 1,
-              color: Color(0xFFE0E6ED),
+              color: AppColors.white,
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
             CustomTextFieldPassAuth(),
