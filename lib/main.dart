@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:first_app_flutter/scr/routes/router.dart';
 import 'package:first_app_flutter/scr/screens/auth/auth_screen.dart';
+import 'package:first_app_flutter/scr/screens/register_screen/register_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: AppRouter.generateRoute,
       home: AuthScreen(),
     );
   }
