@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:first_app_flutter/scr/common/color_constraints.dart';
 import 'package:flutter/cupertino.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xFFF3F4F6),
+      backgroundColor: AppColors.scaffoldBackground,
       navigationBar: CupertinoNavigationBar(
         backgroundColor: CupertinoColors.white,
         border: Border(),
@@ -22,19 +23,19 @@ class RegisterScreen extends StatelessWidget {
             CustomTextField(),
             Container(
               height: 1,
-              color: Color.fromARGB(255, 204, 210, 216),
+              color: AppColors.white,
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
             CustomTextFieldLogin(),
             Container(
               height: 1,
-              color: Color.fromARGB(255, 204, 210, 216),
+              color: AppColors.white,
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
             CustomTextFieldEmail(),
             Container(
               height: 1,
-              color: Color.fromARGB(255, 204, 210, 216),
+              color: AppColors.white,
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
             CustomTexFieldPassword(),
@@ -44,7 +45,7 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CupertinoButton(
-                  color: Color.fromARGB(255, 26, 145, 64),
+                  color: AppColors.main,
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text(
                     'Создать аккаунт',
