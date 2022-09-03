@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:first_app_flutter/scr/common/color_constraints.dart';
 import 'package:first_app_flutter/scr/routes/routing_const.dart';
 import 'package:first_app_flutter/scr/screens/register_screen/register_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -32,7 +33,7 @@ class AuthScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CupertinoButton(
-                  color: Color.fromARGB(255, 26, 145, 64),
+                  color: AppColors.main,
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text('Войти'),
                   onPressed: () {}),
@@ -41,7 +42,7 @@ class AuthScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CupertinoButton(
-                  color: Color.fromARGB(255, 26, 145, 64),
+                  color: AppColors.main,
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text('Регистрация',
                       style: TextStyle(fontWeight: FontWeight.bold)),
