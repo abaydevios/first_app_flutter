@@ -21,23 +21,13 @@ class AuthScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            CupertinoTextField(
-              placeholder: 'Логин или почта',
-              decoration: BoxDecoration(color: CupertinoColors.white),
-              padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-            ),
+            CustomTextFieldLogin(),
             Container(
               height: 1,
               color: Color(0xFFE0E6ED),
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
-            CupertinoTextField(
-                decoration: BoxDecoration(
-                  color: CupertinoColors.white,
-                ),
-                placeholder: 'Пароль',
-                padding:
-                    const EdgeInsets.symmetric(vertical: 19, horizontal: 16)),
+            CustomTextFieldPassAuth(),
             SizedBox(height: 32),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -53,18 +43,50 @@ class AuthScreen extends StatelessWidget {
               child: CupertinoButton(
                   color: Color.fromARGB(255, 26, 145, 64),
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: Text('Зарегистрироваться',
+                  child: Text('Регистрация',
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   onPressed: () {
-                    Navigator.pushNamed(
-                    context, 
-                    RegisterRoute
-                    );
+                    Navigator.pushNamed(context, RegisterRoute);
                   }),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class CustomTextFieldPassAuth extends StatelessWidget {
+  const CustomTextFieldPassAuth({
+    Key? key,
+    this.placeholder = 'Введите'
+  }) : super(key: key);
+
+  final String placeholder;
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoTextField(
+        decoration: BoxDecoration(
+          color: CupertinoColors.white,
+        ),
+        placeholder: 'Пароль',
+        padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16));
+  }
+}
+
+class CustomTextFieldLogin extends StatelessWidget {
+  const CustomTextFieldLogin({Key? key, this.placeholder = 'Введите'})
+      : super(key: key);
+
+  final String placeholder;
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoTextField(
+      placeholder: 'Логин или почта',
+      decoration: BoxDecoration(color: CupertinoColors.white),
+      padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
     );
   }
 }
