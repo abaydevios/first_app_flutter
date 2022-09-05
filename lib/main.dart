@@ -4,8 +4,8 @@ import 'package:first_app_flutter/scr/common/color_constraints.dart';
 import 'package:first_app_flutter/scr/routes/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'scr/screens/auth/auth_screen.dart';
-import 'scr/screens/profil/profil.dart';
+import 'scr/screens/main_screen/main_screen.dart';
+
 
 
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: CupertinoThemeData(scaffoldBackgroundColor: AppColors.scaffoldBackground),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
-      home: ProfilScreen(),
+      home: MainScreen(),
     );
   }
 }

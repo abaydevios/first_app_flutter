@@ -56,16 +56,3 @@ class ProfilScreen extends StatelessWidget {
 
 
 
-// class ListScreen extends StatelessWidget {
-//   const ListScreen ({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return CupertinoPageScaffold(
-//       child: ListView.separated(
-//         itemBuilder: ((context, index) => Text('asd')), 
-//         separatorBuilder: ((context, index) => Divider()),
-//         itemCount: 5),
-//         );
-//   }
-// }

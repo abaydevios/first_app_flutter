@@ -60,7 +60,7 @@ class AuthScreen extends StatelessWidget {
 class CustomTextFieldPassAuth extends StatelessWidget {
   const CustomTextFieldPassAuth({
     Key? key,
-    this.placeholder = 'Введите'
+    this.placeholder = 'Пароль'
   }) : super(key: key);
 
   final String placeholder;
@@ -71,13 +71,15 @@ class CustomTextFieldPassAuth extends StatelessWidget {
         decoration: BoxDecoration(
           color: CupertinoColors.white,
         ),
-        placeholder: 'Пароль',
+        placeholder: placeholder,
         padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16));
   }
 }
 
 class CustomTextFieldLogin extends StatelessWidget {
-  const CustomTextFieldLogin({Key? key, this.placeholder = 'Введите'})
+  const CustomTextFieldLogin({
+    Key? key, 
+    this.placeholder = 'Логин или почта'})
       : super(key: key);
 
   final String placeholder;
@@ -85,7 +87,7 @@ class CustomTextFieldLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
-      placeholder: 'Логин или почта',
+      placeholder: placeholder,
       decoration: BoxDecoration(color: CupertinoColors.white),
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
     );
