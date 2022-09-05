@@ -63,7 +63,7 @@ class RegisterScreen extends StatelessWidget {
 class CustomTexFieldPassword extends StatelessWidget {
   const CustomTexFieldPassword({
     Key? key,
-    this.placeholder = 'Введите'
+    this.placeholder = 'Пароль'
   }) : super(key: key);
 
   final String placeholder;
@@ -72,7 +72,7 @@ class CustomTexFieldPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextField(
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Пароль'),
+      placeholder: placeholder,
       decoration: BoxDecoration(
         color: CupertinoColors.white,
       ),
@@ -83,7 +83,7 @@ class CustomTexFieldPassword extends StatelessWidget {
 class CustomTextFieldEmail extends StatelessWidget {
   const CustomTextFieldEmail({
     Key? key,
-    this.placeholder = 'Введите',
+    this.placeholder = 'Почта',
   }) : super(key: key);
 
   final String placeholder;
@@ -92,7 +92,7 @@ class CustomTextFieldEmail extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextField(
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Почта'),
+      placeholder: placeholder,
       decoration: BoxDecoration(
         color: CupertinoColors.white,
       ),
@@ -103,7 +103,7 @@ class CustomTextFieldEmail extends StatelessWidget {
 class CustomTextFieldLogin extends StatelessWidget {
   const CustomTextFieldLogin({
     Key? key,
-    this.placeholder = 'Введите',
+    this.placeholder = 'Телефон',
   }) : super(key: key);
 
   final String placeholder;
@@ -112,7 +112,7 @@ class CustomTextFieldLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextField(
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Телефон'),
+      placeholder: placeholder,
       decoration: BoxDecoration(
         color: CupertinoColors.white,
       ),
@@ -123,7 +123,7 @@ class CustomTextFieldLogin extends StatelessWidget {
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
-    this.placeholder = 'Введите',
+    this.placeholder = 'Логин',
   }) : super(key: key);
 
   final String placeholder;
@@ -132,7 +132,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextField(
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Логин'),
+      placeholder: placeholder,
       decoration: BoxDecoration(
         color: CupertinoColors.white,
       ),
