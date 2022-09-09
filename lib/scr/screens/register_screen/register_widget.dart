@@ -123,19 +123,22 @@ class CustomTextFieldLogin extends StatelessWidget {
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
-    this.placeholder = 'Логин',
+    this.placeholder = 'Введите',
+    this.suffix,
+    this.controller,
   }) : super(key: key);
-
   final String placeholder;
+  final Widget? suffix;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
-      padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
+      controller: controller,
       placeholder: placeholder,
-      decoration: BoxDecoration(
-        color: CupertinoColors.white,
-      ),
+      decoration: BoxDecoration(color: CupertinoColors.white),
+      padding: const EdgeInsets.symmetric(vertical: 19,horizontal: 16),
+      suffix: suffix,
     );
   }
 }
