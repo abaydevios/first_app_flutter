@@ -2,6 +2,8 @@
 
 import 'package:first_app_flutter/scr/common/color_constraints.dart';
 import 'package:first_app_flutter/scr/routes/router.dart';
+import 'package:first_app_flutter/scr/routes/routing_const.dart';
+import 'package:first_app_flutter/scr/screens/auth/auth_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'scr/screens/main_screen/main_screen.dart';
@@ -20,10 +22,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      theme: CupertinoThemeData(scaffoldBackgroundColor: AppColors.scaffoldBackground),
+      theme: CupertinoThemeData(
+        scaffoldBackgroundColor: AppColors.scaffoldBackground,
+        barBackgroundColor: AppColors.white),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
-      home: MainScreen(),
+      initialRoute: AuthRoute,
     );
   }
 }
