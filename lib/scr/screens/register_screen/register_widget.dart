@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:first_app_flutter/scr/common/color_constraints.dart';
 import 'package:flutter/cupertino.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xFFF3F4F6),
+      backgroundColor: AppColors.scaffoldBackground,
       navigationBar: CupertinoNavigationBar(
         backgroundColor: CupertinoColors.white,
         border: Border(),
@@ -22,19 +23,19 @@ class RegisterScreen extends StatelessWidget {
             CustomTextField(),
             Container(
               height: 1,
-              color: Color.fromARGB(255, 204, 210, 216),
+              color: AppColors.white,
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
             CustomTextFieldLogin(),
             Container(
               height: 1,
-              color: Color.fromARGB(255, 204, 210, 216),
+              color: AppColors.white,
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
             CustomTextFieldEmail(),
             Container(
               height: 1,
-              color: Color.fromARGB(255, 204, 210, 216),
+              color: AppColors.white,
               margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
             CustomTexFieldPassword(),
@@ -44,7 +45,7 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: CupertinoButton(
-                  color: Color.fromARGB(255, 26, 145, 64),
+                  color: AppColors.main,
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text(
                     'Создать аккаунт',
@@ -62,7 +63,7 @@ class RegisterScreen extends StatelessWidget {
 class CustomTexFieldPassword extends StatelessWidget {
   const CustomTexFieldPassword({
     Key? key,
-    this.placeholder = 'Введите'
+    this.placeholder = 'Пароль'
   }) : super(key: key);
 
   final String placeholder;
@@ -71,7 +72,7 @@ class CustomTexFieldPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextField(
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Пароль'),
+      placeholder: placeholder,
       decoration: BoxDecoration(
         color: CupertinoColors.white,
       ),
@@ -82,7 +83,7 @@ class CustomTexFieldPassword extends StatelessWidget {
 class CustomTextFieldEmail extends StatelessWidget {
   const CustomTextFieldEmail({
     Key? key,
-    this.placeholder = 'Введите',
+    this.placeholder = 'Почта',
   }) : super(key: key);
 
   final String placeholder;
@@ -91,7 +92,7 @@ class CustomTextFieldEmail extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextField(
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Почта'),
+      placeholder: placeholder,
       decoration: BoxDecoration(
         color: CupertinoColors.white,
       ),
@@ -102,7 +103,7 @@ class CustomTextFieldEmail extends StatelessWidget {
 class CustomTextFieldLogin extends StatelessWidget {
   const CustomTextFieldLogin({
     Key? key,
-    this.placeholder = 'Введите',
+    this.placeholder = 'Телефон',
   }) : super(key: key);
 
   final String placeholder;
@@ -111,7 +112,7 @@ class CustomTextFieldLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTextField(
       padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Телефон'),
+      placeholder: placeholder,
       decoration: BoxDecoration(
         color: CupertinoColors.white,
       ),
@@ -123,18 +124,21 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     Key? key,
     this.placeholder = 'Введите',
+    this.suffix,
+    this.controller,
   }) : super(key: key);
-
   final String placeholder;
+  final Widget? suffix;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
-      padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 16),
-      placeholder: ('Логин'),
-      decoration: BoxDecoration(
-        color: CupertinoColors.white,
-      ),
+      controller: controller,
+      placeholder: placeholder,
+      decoration: BoxDecoration(color: CupertinoColors.white),
+      padding: const EdgeInsets.symmetric(vertical: 19,horizontal: 16),
+      suffix: suffix,
     );
   }
 }
