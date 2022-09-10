@@ -3,31 +3,48 @@
 import 'package:first_app_flutter/scr/common/color_constraints.dart';
 import 'package:first_app_flutter/scr/routes/router.dart';
 import 'package:first_app_flutter/scr/routes/routing_const.dart';
-import 'package:first_app_flutter/scr/screens/auth/auth_screen.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'scr/screens/main_screen/main_screen.dart';
+
+import 'package:hive_flutter/hive_flutter.dart';
 
 
-
-
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('tokens');
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String initialRoute = AuthRoute;
+
+  @override
+  void initState() {
+    Box tokensBox = Hive.box('tokens');
+
+    if (tokensBox.get('access') != null || tokensBox.get('refresh') != null) {
+      print('Open MainScreen');
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
       theme: CupertinoThemeData(
-        scaffoldBackgroundColor: AppColors.scaffoldBackground,
-        barBackgroundColor: AppColors.white),
+          scaffoldBackgroundColor: AppColors.scaffoldBackground,
+          barBackgroundColor: AppColors.white),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: AuthRoute,
+      initialRoute: initialRoute,
     );
   }
 }

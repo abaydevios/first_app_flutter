@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, use_rethrow_when_possible
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, use_rethrow_when_possible, unused_local_variable
 
 import 'package:dio/dio.dart';
 import 'package:first_app_flutter/scr/common/color_constraints.dart';
 import 'package:first_app_flutter/scr/routes/routing_const.dart';
 import 'package:first_app_flutter/scr/screens/register_screen/register_widget.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -62,6 +63,11 @@ class _AuthScreenState extends State<AuthScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text('Войти'),
                   onPressed: () async {
+                    Dio dio = Dio();
+                    Box tokensBox = Hive.box('tokens');
+
+                    tokensBox.put('access', 'testovaya_zapis');
+                    print(tokensBox.get('access'));
                     print(emailController.text);
                     print(passwordController.text);
                     try {
@@ -73,7 +79,15 @@ class _AuthScreenState extends State<AuthScreen> {
                         },
                       );
 
-                      print(response.data['tokens']['accessToken']);
+                      tokensBox.put(
+                          'access', response.data['tokens']['accessToken']);
+                      tokensBox.put(
+                          'refresh', response.data['tokens']['refreshToken']);
+
+                      print(tokensBox.get('access'));
+                      print(tokensBox.get('refresh'));
+
+                    
                       Navigator.pushReplacementNamed(context, MainRoute);
                     } on DioError catch (e) {
                       print(e.response!.data);
